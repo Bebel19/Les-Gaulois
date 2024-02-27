@@ -1,7 +1,7 @@
 package batailles;
 
 //Enum Lieu
-public enum Lieux {
+public enum Lieu {
  VILLAGE,
  CAMP
 }

@@ -1,5 +1,7 @@
 package batailles;
 
+import java.util.List;
+
 public class Bataille {
     private List<Combattant> combattants;
     private Lieu lieu;
