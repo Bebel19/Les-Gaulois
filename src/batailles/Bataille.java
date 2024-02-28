@@ -1,5 +1,7 @@
 package batailles;
 
+import java.util.List;
+
 public class Bataille {
     private List<Combattant> combattants;
     private Lieu lieu;
@@ -10,6 +12,7 @@ public class Bataille {
     }
 
     public void demarrer() {
-        // Logique de démarrage de la bataille
+        // Logique de dï¿½marrage de la bataille
+        
     }
 }

@@ -13,9 +13,9 @@ public class TestHistoire {
 		
 		
 		//Creation des habitants gaulois
-		Gaulois asterix = new Gaulois("Astérix", 5);
-		Gaulois vercingetorix = new Gaulois("Vercingétorix",5);
-		Gaulois obelix = new Gaulois("Obélix", 15);
+		Gaulois asterix = new Gaulois("Astï¿½rix", 5);
+		Gaulois vercingetorix = new Gaulois("Vercingï¿½torix",5);
+		Gaulois obelix = new Gaulois("Obï¿½lix", 15);
 		Gaulois prolix = new Gaulois("Prolix", 2);
 		Gaulois agecanonix = new Gaulois("Agecanonix", 1);
 		Gaulois assurancetourix = new Gaulois("Assurancetourix", 2);
@@ -24,8 +24,8 @@ public class TestHistoire {
 		Village lutece = new Village(vercingetorix);
 		
 		//Creation du village gaulois
-		//Annonce de la création de Lutece
-		vercingetorix.parler("Je suis un grand guerrier et je vais créer mon village");
+		//Annonce de la crï¿½ation de Lutece
+		vercingetorix.parler("Je suis un grand guerrier et je vais crï¿½er mon village");
 		lutece.ajouterVillageois(agecanonix);
 		lutece.ajouterVillageois(assurancetourix);
 		lutece.ajouterVillageois(asterix);
@@ -33,7 +33,7 @@ public class TestHistoire {
 		lutece.ajouterVillageois(prolix);
 		
 		
-		//Creation de l'armée romaine
+		//Creation de l'armï¿½e romaine
 		Soldat minus = new Soldat("Minus", 6, Grade.CENTURION);
 		Soldat brutus = new Soldat("Brutus", 5, Grade.CENTURION); 
 		Soldat milexcus = new Soldat("Milexcus", 2, Grade.SOLDAT);
@@ -45,8 +45,8 @@ public class TestHistoire {
 		
 		
 		//Creation d'un camp romain
-		//Annonce de la création d'un camp romain par minus
-		minus.parler("Je suis en charge de créer un nouveau camp romain");
+		//Annonce de la crï¿½ation d'un camp romain par minus
+		minus.parler("Je suis en charge de crï¿½er un nouveau camp romain");
 		campDeMinus.ajouterSoldat(brutus); 
 		campDeMinus.ajouterSoldat(milexcus); 
 		campDeMinus.ajouterSoldat(tulliusOctopus); 
@@ -67,7 +67,7 @@ public class TestHistoire {
 		campDeMinus.changerCommandant (chorus);
 		
 		
-		//Les Gauloi se préparent à l'assaut
+		//Les Gauloi se prï¿½parent ï¿½ l'assaut
 		
 		panoramix.fabriquerPotion(3);
 		panoramix.donnerPotion(asterix);
@@ -77,10 +77,19 @@ public class TestHistoire {
 		panoramix.donnerPotion(agecanonix);
 		
 		
-		//Début de l'assaut
+		//Dï¿½but de l'assaut
 		
 		minus.parler("UN GAU... UN GAUGAU...");
-		
+		campDeMinus.getCommandant().parler("Soldats, Ã©quipez vous");
+
+		for(int i =0 ; i < campDeMinus.getNbSoldats();i++) {
+				campDeMinus.getArmeeRomaine()[i].parler("Chef oui chef !");
+			}
+
+		for(int i =0 ; i < campDeMinus.getNbSoldats();i++) {
+			campDeMinus.getArmeeRomaine()[i].equiperArmure();
+		}
+
 		//Asterix attaque
 		/*
 		while(!(asterix.estATerre() || minus.estATerre())) {
