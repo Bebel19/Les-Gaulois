@@ -1,21 +1,19 @@
 package personnages;
 
-import Equipements.Romains.Bouclier;
-import Equipements.Romains.Casque;
-import Equipements.Romains.Plastron;
+import Equipements.ArmesRomaines;
 
 public class Soldat extends Romain{
 	
 	public Grade grade; 
-	Casque casque;
-	Bouclier bouclier;
-	Plastron  plastron;
+	private ArmesRomaines casque = null;
+	private ArmesRomaines bouclier = null;
+	private ArmesRomaines  plastron = null;
 	
 	public Soldat(String nom, int force, Grade grade) {
 		super(nom,force); 
 		this.grade = grade; 
 	}
-	
+
 	@Override
 	protected double protection(double force) {
 		if (casque != null && bouclier != null && plastron != null) {
@@ -43,7 +41,7 @@ public class Soldat extends Romain{
 			if(force<0) {
 				force=0;
 			}
-			}
+			
 		return force;
 	}
 
@@ -51,26 +49,25 @@ public class Soldat extends Romain{
 	
 	public void equiperArmure() {
         if (casque == null) {
-            casque = new Casque();
-            System.out.println("Le soldat "+nom+" s'équipe d'un casque.");
+            casque = ArmesRomaines.CASQUE;
+            System.out.println("Le soldat "+nom+" s'ï¿½quipe d'un casque.");
             }
         else
-            parler("J'ai déja un casque");
+            parler("J'ai dï¿½ja un casque");
 
         if (plastron == null) {
-            plastron = new Plastron();
-            System.out.println("Le soldat "+nom+" s'équipe d'un plastron.");
+            plastron = ArmesRomaines.PLASTRON;
+            System.out.println("Le soldat "+nom+" s'ï¿½quipe d'un plastron.");
         }
         else
-            this.parler("J'ai déja un plastron");
+            this.parler("J'ai dï¿½ja un plastron");
         if (bouclier == null) {
-            bouclier = new Bouclier();
-            System.out.println("Le soldat "+nom+" s'équipe d'un bouclier.");
+            bouclier = ArmesRomaines.BOUCLIER;
+            System.out.println("Le soldat "+nom+" s'ï¿½quipe d'un bouclier.");
         }
         else 
-            this.parler("J'ai déja un bouclier");
+            this.parler("J'ai dï¿½ja un bouclier");
 
     }
-
 
 }
