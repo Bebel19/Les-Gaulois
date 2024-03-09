@@ -16,33 +16,39 @@ public class Soldat extends Romain{
 		this.grade = grade; 
 	}
 	
-	private double protection(double force) {
-		if(casque.defense >0) {
-			force-=2;
-			System.out.println("Le casque attenue les dégats de " + casque.defense);
-		}
-		else {
-			casque.defense = 0;
-		}
-		if(bouclier.defense >0) {
-			force-=3;
-			System.out.println("Le bouclier attenue les dégats de " + bouclier.defense);
-		}
-		else {
-			bouclier.defense = 0;
-		}
-		if(plastron.defense >0) {
-			force-=3;
-			System.out.println("Le plastron attenue les dégats de " + plastron.defense);
-		}
-		else {
-			plastron.defense = 0;
-		}
-		if(force<0) {
-			force=0;
-		}
+	@Override
+	protected double protection(double force) {
+		if (casque != null && bouclier != null && plastron != null) {
+			if(casque.defense >0) {
+				force-=2;
+				System.out.println("Le casque attenue les dégats de " + casque.defense);
+			}
+			else {
+				casque.defense = 0;
+			}
+			if(bouclier.defense >0) {
+				force-=3;
+				System.out.println("Le bouclier attenue les dégats de " + bouclier.defense);
+			}
+			else {
+				bouclier.defense = 0;
+			}
+			if(plastron.defense >0) {
+				force-=3;
+				System.out.println("Le plastron attenue les dégats de " + plastron.defense);
+			}
+			else {
+				plastron.defense = 0;
+			}
+			if(force<0) {
+				force=0;
+			}
+			}
 		return force;
 	}
+
+	
+	
 	public void equiperArmure() {
         if (casque == null) {
             casque = new Casque();
@@ -65,19 +71,6 @@ public class Soldat extends Romain{
             this.parler("J'ai déja un bouclier");
 
     }
-	
-	@Override
-	public void recevoirCoup(double force) {
-		if (casque != null && bouclier != null && plastron != null)
-			force = protection(force);
-		this.force -= force;
-		if (this.force <= 0) {
-			this.force = 0;
-			this.parler("J'abandonne...");
-		} else {
-			this.parler("Aïe !");
-		}
-	}
-	
+
 
 }
