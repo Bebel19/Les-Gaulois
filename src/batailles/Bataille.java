@@ -23,4 +23,3 @@ public interface Bataille {
 		System.out.print("Préparation de la bataille :");
 	}
 }
->>>>>>> 954b72ce78a7c1dafafc65932b87380dfe16e991

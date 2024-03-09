@@ -14,38 +14,26 @@ public class Soldat extends Romain{
 		this.grade = grade; 
 	}
 
-	@Override
-	protected double protection(double force) {
-		if (casque != null && bouclier != null && plastron != null) {
-			if(casque.defense >0) {
-				force-=2;
-				System.out.println("Le casque attenue les dégats de " + casque.defense);
-			}
-			else {
-				casque.defense = 0;
-			}
-			if(bouclier.defense >0) {
-				force-=3;
-				System.out.println("Le bouclier attenue les dégats de " + bouclier.defense);
-			}
-			else {
-				bouclier.defense = 0;
-			}
-			if(plastron.defense >0) {
-				force-=3;
-				System.out.println("Le plastron attenue les dégats de " + plastron.defense);
-			}
-			else {
-				plastron.defense = 0;
-			}
-			if(force<0) {
-				force=0;
-			}
-			
-		return force;
-	}
 
-	
+
+  @Override
+    protected double protection(double force) {
+        // Applique la défense de chaque équipement si présent
+        if (casque != null) {
+            force -= casque.getDefense();
+            System.out.println("Le casque attenue les dégats de " + casque.getDefense());
+        }
+        if (bouclier != null) {
+            force -= bouclier.getDefense();
+            System.out.println("Le bouclier attenue les dégats de " + bouclier.getDefense());
+        }
+        if (plastron != null) {
+            force -= plastron.getDefense();
+            System.out.println("Le plastron attenue les dégats de " + plastron.getDefense());
+        }
+        
+        return Math.max(0, force); // Assure que la force n'est jamais négative
+    }
 	
 	public void equiperArmure() {
         if (casque == null) {
