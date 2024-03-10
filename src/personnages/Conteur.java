@@ -13,7 +13,6 @@ public class Conteur {
     }
 
     public void raconter(Bataille bataille) {
-        System.out.println("Je raconte");
         decrireContext();
         choisirPersonnages();
         preparerLaBataille();
@@ -22,23 +21,23 @@ public class Conteur {
     }
     
 	private void decrireContext() {
-		System.out.print("Décriscription du context :");
+		System.out.println("Laissez moi vous conter une histoire qui � lieu dans");
 	}
 	
 	private void choisirPersonnages() {
-		System.out.print("Choisissez vos personnages :");
+		System.out.println("Choisissez vos personnages :");
 	}
 	
 	private void preparerLaBataille() {
-		System.out.print("Préparation de la bataille :");
+		System.out.println("Préparation de la bataille :");
 	}
 	
 	private void decrireLaBataille() {
-		System.out.print("Description de la bataille :");
+		System.out.println("Description de la bataille :");
 	}
 	
 	private void resultatBataille() {
-		System.out.print("Préparation de la bataille :");
+		System.out.println("Préparation de la bataille :");
 	}
 }
 

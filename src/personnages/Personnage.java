@@ -33,6 +33,7 @@ public abstract class Personnage {
 			this.parler("Je ne peux plus me battre...");
 		}
 	}
+	
 	public void recevoirCoup(double force) {
 		
 		this.force -=  protection(force);

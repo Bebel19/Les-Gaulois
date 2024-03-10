@@ -52,7 +52,7 @@ public class TestHistoire {
 		String[] adjectifsForetSombre = {"sombre","silencieuse","lugubre","inquiétante"};
 		
 		//Création d'un lieu
-		Lieu foretSombreNuit = new Lieu("Foret",adjectifsForetSombre, "jour", "froid");
+		Lieu foretSombreNuit = new Lieu("une foret",adjectifsForetSombre, "jour", "froid");
 		
 		//Création d'une embuscade
 		Embuscade embuscadeForetSombreNuit = new Embuscade(foretSombreNuit, camp.getArmeeRomaine(),village.getVillageois());

@@ -84,8 +84,8 @@ public class TestGaulois {
 		//Asterix attaque
 		
 		while(!(asterix.estATerre() || minus.estATerre())) {
-			minus.frapper(asterix);
 			asterix.frapper(minus);
+			minus.frapper(asterix);
 		}
 	}
 }
