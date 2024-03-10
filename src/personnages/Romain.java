@@ -6,6 +6,7 @@ public class Romain extends Personnage {
 		super(nom,force);
 	}
 	
+	
 	@Override
 	public String donnerAuteur() {
 		return "romain";

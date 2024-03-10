@@ -17,7 +17,7 @@ public abstract class Personnage {
 	}
 	
 	protected double calculFrappe(double force) {
-		return force/3;
+		return force;
 	}
 	
 	protected double protection(double forceFrappe){

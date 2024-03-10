@@ -1,115 +1,63 @@
 package test_fonctionnel;
 
-import personnages.Druide;
 import personnages.Gaulois;
 import personnages.Grade;
 import personnages.Soldat;
+import batailles.Embuscade;
+import batailles.Lieu;
+import personnages.Conteur;
 import sites.Camp;
 import sites.Village;
+
+
+
 
 public class TestHistoire {
 	public static void main(String[] args) {
 		
-		
-		
-		//Creation des habitants gaulois
-		Gaulois asterix = new Gaulois("Astï¿½rix", 5);
-		Gaulois vercingetorix = new Gaulois("Vercingï¿½torix",5);
-		Gaulois obelix = new Gaulois("Obï¿½lix", 15);
-		Gaulois prolix = new Gaulois("Prolix", 2);
+		//Création des combatants et dse leurs camp et village
+		Gaulois abraracourcix = new Gaulois("Abraracourcix", 5);
+		Village village = new Village(abraracourcix);
 		Gaulois agecanonix = new Gaulois("Agecanonix", 1);
 		Gaulois assurancetourix = new Gaulois("Assurancetourix", 2);
-		Gaulois abraracourcix = new Gaulois("abraracourcix" , 5);
-		Druide panoramix = new Druide("Panoramix",1);
-		Village lutece = new Village(vercingetorix);
-		
-		//Creation du village gaulois
-		//Annonce de la crï¿½ation de Lutece
-		vercingetorix.parler("Je suis un grand guerrier et je vais crï¿½er mon village");
-		lutece.ajouterVillageois(agecanonix);
-		lutece.ajouterVillageois(assurancetourix);
-		lutece.ajouterVillageois(asterix);
-		lutece.ajouterVillageois(obelix);
-		lutece.ajouterVillageois(prolix);
-		
-		
-		//Creation de l'armï¿½e romaine
-		Soldat minus = new Soldat("Minus", 6, Grade.CENTURION);
-		Soldat brutus = new Soldat("Brutus", 5, Grade.CENTURION); 
-		Soldat milexcus = new Soldat("Milexcus", 2, Grade.SOLDAT);
-		Soldat tulliusOctopus = new Soldat("Tullius Octopus", 2, Grade.TESSERARIUS);
-		Soldat ballondebaudrus = new Soldat("Ballondebaudrus", 3, Grade.OPTIO); 
-		Soldat briseradius = new Soldat("Briseradius", 4, Grade.SOLDAT);
+		Gaulois asterix = new Gaulois("Astérix", 5);
+		Gaulois obelix = new Gaulois("Obelix", 15);
+		Gaulois cetautomatix = new Gaulois("Cétautomatix", 8);
+		Gaulois ordralfabetix = new Gaulois("Ordralfabétix", 8);
+		village.ajouterVillageois(agecanonix);
+		village.ajouterVillageois(assurancetourix);
+		village.ajouterVillageois(asterix);
+		village.ajouterVillageois(obelix);
+		village.ajouterVillageois(cetautomatix);
+		village.ajouterVillageois(ordralfabetix);
 		Soldat chorus = new Soldat("Chorus", 4, Grade.CENTURION);
-		Camp campDeMinus = new Camp(minus);
+		Camp camp = new Camp(chorus);
+		Soldat minus = new Soldat("Minus", 2, Grade.SOLDAT);
+		Soldat brutus = new Soldat("Brutus", 5, Grade.CENTURION);
+		Soldat milexcus = new Soldat("Milexcus", 2, Grade.SOLDAT);
+		Soldat tullius = new Soldat("Tullius Octopus", 2, Grade.TESSERARIUS);
+		Soldat ballondebaudrus = new Soldat("Ballondebaudrus", 3, Grade.OPTIO);
+		Soldat quintilius = new Soldat("Quintilius", 2, Grade.SOLDAT);
+		camp.ajouterSoldat(brutus);
+		camp.ajouterSoldat(milexcus);
+		camp.ajouterSoldat(tullius);
+		camp.ajouterSoldat(ballondebaudrus);
+		camp.ajouterSoldat(minus);
+		camp.ajouterSoldat(quintilius);
 		
+		//Création du conteur
+		Conteur goscinny = new Conteur("Goscinny");
 		
-		//Creation d'un camp romain
-		//Annonce de la crï¿½ation d'un camp romain par minus
-		minus.parler("Je suis en charge de crï¿½er un nouveau camp romain");
-		campDeMinus.ajouterSoldat(brutus); 
-		campDeMinus.ajouterSoldat(milexcus); 
-		campDeMinus.ajouterSoldat(tulliusOctopus); 
-		campDeMinus.ajouterSoldat(ballondebaudrus);
-
+		// Sets d'adjectifs
+		String[] adjectifsForetSombre = {"sombre","silencieuse","lugubre","inquiétante"};
 		
-
-
+		//Création d'un lieu
+		Lieu foretSombreNuit = new Lieu("Foret",adjectifsForetSombre, "jour", "froid");
 		
+		//Création d'une embuscade
+		Embuscade embuscadeForetSombreNuit = new Embuscade(foretSombreNuit, camp.getArmeeRomaine(),village.getVillageois());
 		
-		campDeMinus.afficherCamp();
-		lutece.afficherVillageois();
-	
-		
-		lutece.changerChef(abraracourcix); 
-
-		campDeMinus.changerCommandant (briseradius);
-		campDeMinus.changerCommandant (chorus);
-		
-		
-		//Les Gauloi se prï¿½parent ï¿½ l'assaut
-		
-		panoramix.fabriquerPotion(3);
-		panoramix.donnerPotion(asterix);
-		panoramix.donnerPotion(obelix);
-		panoramix.donnerPotion(assurancetourix);
-		panoramix.donnerPotion(abraracourcix);
-		panoramix.donnerPotion(agecanonix);
-		
-		
-		//Dï¿½but de l'assaut
-		
-		minus.parler("UN GAU... UN GAUGAU...");
-		campDeMinus.getCommandant().parler("Soldats, Ã©quipez vous");
-
-		for(int i =0 ; i < campDeMinus.getNbSoldats();i++) {
-				campDeMinus.getArmeeRomaine()[i].parler("Chef oui chef !");
-			}
-
-		for(int i =0 ; i < campDeMinus.getNbSoldats();i++) {
-			campDeMinus.getArmeeRomaine()[i].equiperArmure();
-		}
-
-		//Asterix attaque
-		/*
-		while(!(asterix.estATerre() || minus.estATerre())) {
-		asterix.frapper(minus);
-		minus.frapper(asterix);
-		}
-		
-		while(!(asterix.estATerre() || brutus.estATerre())) {
-		asterix.frapper(brutus);
-		brutus.frapper(asterix);
-		}*/
-		
-		for(int i =0 ; i < lutece.nbVillageois;i++) {
-			for(int j =0 ; j < campDeMinus.getNbSoldats();j++) {
-				while(!(lutece.getVillageois()[i].estATerre() || campDeMinus.getArmeeRomaine()[j].estATerre())) {
-					lutece.getVillageois()[i].frapper(campDeMinus.getArmeeRomaine()[j]);
-					campDeMinus.getArmeeRomaine()[j].frapper(lutece.getVillageois()[i]);
-				}
-				
-		}
-			}
-	}
+		//Compter l'histoire
+		goscinny.raconter(embuscadeForetSombreNuit);
+}
 }
