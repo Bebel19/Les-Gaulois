@@ -3,14 +3,14 @@ package batailles;
 import personnages.Personnage;
 
 
-public class Embuscade implements Bataille {
+public class HistoirePersonalisee implements Bataille {
 	
 	private Lieu lieu;
 	private Personnage[] embuscadeurs;
 	private Personnage[] victimes;
 	private Personnage[] combatants;
  	
-	public Embuscade(Lieu lieu, Personnage[] embuscadeurs,Personnage[] victimes) {
+	public HistoirePersonalisee(Lieu lieu, Personnage[] embuscadeurs,Personnage[] victimes) {
 		
 		this.lieu = lieu;
 		this.embuscadeurs = embuscadeurs;
@@ -44,40 +44,23 @@ public class Embuscade implements Bataille {
 
 	@Override
 	public void decrireContext() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Laissez moi vous conter une histoire qui à lieu dans");
 	}
-
-
-
 	@Override
 	public void choisirPersonnages() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Choisissez vos personnages :");
 	}
-
-
-
 	@Override
 	public void preparerLaBataille() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("PrÃ©paration de la bataille :");
 	}
-
-
-
 	@Override
 	public void decrireLaBataille() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Description de la bataille :");
 	}
-
-
-
 	@Override
 	public void resultatBataille() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("PrÃ©paration de la bataille :");
 	}
 	
 }
